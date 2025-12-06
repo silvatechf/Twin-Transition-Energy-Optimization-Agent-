@@ -1,4 +1,4 @@
-// src/main/java/com/twintransition/energy/controller/OptimizationController.java
+
 package com.twintransition.energy.controller;
 
 import com.twintransition.energy.dto.ApiResponse; // <-- CORREÇÃO 1: Adicionar a importação
@@ -32,24 +32,19 @@ public class OptimizationController {
      * @return A response containing the recommendation and success message.
      */
     @PostMapping("/recommend")
-    // MELHORIA: Usar ResponseEntity<ApiResponse<OptimizationRecommendation>>
-    // para tipar a resposta e melhorar a clareza do endpoint.
+    
     public ResponseEntity<ApiResponse<OptimizationRecommendation>> generateRecommendation(
             @Valid @RequestBody OptimizationRequest request,
             Locale locale) {
         
-        // 1. Generate the recommendation using the Core Agent Logic (simulated call)
-        // No futuro, este método incluirá a chamada HTTP para o serviço Python.
         OptimizationRecommendation recommendation = optimizationService.generateRecommendation(request);
 
-        // 2. Prepare success message using i18n (English, Spanish, Portuguese)
         String successMessage = messageSource.getMessage(
                 "recommendation.success", 
                 null, 
                 locale
         );
         
-        // 3. Return the standardized response (HTTP 200 OK by default from ApiResponse constructor)
         return ResponseEntity.ok(
                 new ApiResponse<>(successMessage, recommendation)
         );
