@@ -1,4 +1,3 @@
-
 package com.twintransition.energy.controller;
 
 import com.twintransition.energy.dto.ApiResponse; // <-- CORREÇÃO 1: Adicionar a importação
