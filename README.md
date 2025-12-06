@@ -1,4 +1,4 @@
-# 🚀 Twin Transition Energy Optimization Agent (MVP)  
+#  Twin Transition Energy Optimization Agent (MVP)  
 
 **AI-Powered Prescriptive Energy Management for European SMEs – Digital + Green Transition in One Click**
 
