@@ -7,7 +7,6 @@ import { timer, tap } from 'rxjs';
 import { EnergyService } from './services/energy.service'; 
 import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './models/optimization.model';
 
-// Definição do Componente Standalone
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -28,24 +27,22 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
         </div>
       </header>
 
-      <!-- Layout Principal (Conteúdo Central Alinhado) -->
       <main class="w-full max-w-5xl p-4 sm:p-6 lg:p-8 space-y-8">
         
-        <!-- Bloco de Dicas/Contexto (UX GOV.UK Style) -->
+       
         <div class="p-4 bg-yellow-50 border-l-4 border-yellow-600 shadow-sm rounded">
           <p class="text-sm text-gray-700 font-semibold">{{ T('uxTip') }}</p>
         </div>
 
-        <!-- Layout de Três Colunas (Input e Output) -->
+        
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
-          <!-- Coluna de Input (2/3 em Desktop) -->
+          
           <section class="lg:col-span-2 bg-white p-6 rounded-lg shadow-md border border-gray-300">
             <h2 class="text-2xl font-bold text-[#005ea5] mb-6 border-b-2 border-gray-200 pb-2">{{ T('paramsTitle') }}</h2>
             
             <div class="space-y-6">
               
-              <!-- Simulação de Consumo -->
               <div class="flex flex-col space-y-1">
                 <label class="block text-sm font-semibold text-gray-700">{{ T('simulatedConsumptionLabel') }}</label>
                 <p class="text-xs text-gray-500 mb-1">{{ T('simulatedConsumptionHint') }}</p>
@@ -57,7 +54,7 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
                 />
               </div>
 
-              <!-- Previsão do Tempo -->
+              
               <div class="flex flex-col space-y-1">
                 <label class="block text-sm font-semibold text-gray-700">{{ T('weatherForecastLabel') }}</label>
                 <p class="text-xs text-gray-500 mb-1">{{ T('weatherForecastHint') }}</p>
@@ -69,7 +66,7 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
                 />
               </div>
 
-              <!-- Limites de Conforto -->
+              
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gray-200">
                 <div>
                   <label class="block text-sm font-semibold text-gray-700">{{ T('maxTempLabel') }}</label>
@@ -91,7 +88,7 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
                 </div>
               </div>
 
-              <!-- Seletor de Idioma -->
+              
               <div class="flex items-center gap-4 pt-4 border-t border-gray-200">
                 <label class="text-sm font-semibold text-gray-700 whitespace-nowrap">{{ T('messageLanguageLabel') }}:</label>
                 <select 
@@ -104,7 +101,7 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
                 </select>
               </div>
               
-              <!-- Botão de Ação (Alto Contraste) -->
+              
               <button
                 (click)="runAgent()"
                 [disabled]="isLoading()"
@@ -116,7 +113,7 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
             </div>
           </section>
 
-          <!-- Coluna de Output (Resultados) -->
+         
           <section class="lg:col-span-1 bg-white p-6 rounded-lg shadow-md border-l-4 border-green-600">
             <h2 class="text-2xl font-bold text-gray-700 mb-6 border-b-2 border-gray-200 pb-2">{{ T('agentRecommendationTitle') }}</h2>
             
@@ -128,14 +125,13 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
 
             <div *ngIf="!isLoading()">
               
-              <!-- Mensagem de Sucesso (Estilo GOV.UK - Verde/Azul Suave) -->
+             
               <div *ngIf="successMessage()" class="p-3 mb-4 bg-green-50 text-green-800 rounded-md font-semibold border border-green-300">
                   {{ successMessage() }}
               </div>
               
               <div *ngIf="agentRecommendation()" class="space-y-4">
                 
-                <!-- Cartão de Economia -->
                 <div class="p-4 bg-green-100 rounded-md shadow-inner border border-green-400">
                   <p class="text-base font-bold text-green-800">{{ T('estimatedSavingsFinancial') }}</p>
                   <p class="text-4xl font-black text-green-700">{{ formattedSavings() }} €</p>
@@ -146,13 +142,13 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
                   <p class="text-xl font-bold text-green-700">{{ agentRecommendation()!.estimatedCarbonFootprintReductionKgCO2 | number:'1.2-2' }} kg CO2</p>
                 </div>
 
-                <!-- Justificativa (Gemini Output) -->
+                
                 <div class="border-t pt-4">
                   <p class="text-base font-bold text-gray-700 mb-2">{{ T('prescriptiveJustificationLabel') }}:</p>
                   <p class="text-gray-800 italic bg-gray-50 p-3 rounded-sm border border-gray-300">{{ agentRecommendation()!.naturalLanguageJustification }}</p>
                 </div>
 
-                <!-- Script de Ação -->
+               
                 <div class="border-t pt-4">
                   <p class="text-base font-bold text-gray-700 mb-2">{{ T('actionableScriptLabel') }}:</p>
                   <code class="block bg-gray-800 text-yellow-300 p-2 rounded-sm text-xs break-words shadow-inner font-mono">
@@ -160,7 +156,6 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
                   </code>
                 </div>
                 
-                <!-- Botão de Aprovação (Simulado) -->
                 <button
                   class="w-full mt-4 px-4 py-3 bg-[#005ea5] text-white font-bold text-lg rounded-sm shadow-lg hover:bg-[#004e93] transition duration-150"
                 >
@@ -173,7 +168,6 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
                  <p class="text-gray-500 text-center p-4">{{ T('initialMessage') }}</p>
               </div>
               
-              <!-- Mensagem de Erro (Estilo GOV.UK - Vermelho/Alerta) -->
               <div *ngIf="errorMessage()" class="text-red-700 bg-red-100 p-3 rounded-md mt-4 font-semibold border border-red-500">
                 <p class="font-bold">{{ T('errorLabel') }}:</p>
                 <p>{{ errorMessage() }}</p>
@@ -187,13 +181,12 @@ import { OptimizationRequest, OptimizationRecommendation, ApiResponse } from './
     </div>
   `,
   styles: [`
-    /* Adicionando alguns estilos para simular a tipografia GOV.UK mais robusta */
-    /* Usando font-sans como fallback para a fonte customizada GDS Transport */
+    
     h1, h2, label, button {
-      font-weight: 700; /* Extra bold para impacto */
+      font-weight: 700; 
     }
     .text-4xl {
-        line-height: 1.1; /* Títulos mais compactos e impactantes */
+        line-height: 1.1; 
     }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush, 
@@ -212,7 +205,7 @@ export class AppComponent {
   successMessage = signal<string | null>(null); 
   agentRecommendation = signal<OptimizationRecommendation | null>(null);
   
-  // Lista de mensagens de loading para simulação de UX
+  
   loadingMessages = [
     "Analyzing consumption and weather correlations...",
     "Computing optimal HVAC adjustments...",
@@ -220,9 +213,8 @@ export class AppComponent {
   ];
   loadingMessage = signal(this.loadingMessages[0]);
   
-  // Mapeamento de idioma
+  
   private translations: any = {
-    // ... (Mapa de traduções, incluindo a chave 'mainTitle' e 'uxTip')
     en: {
       mainTitle: 'Twin Transition Energy Optimization Agent',
       headerSubtitle: 'Prescriptive Analysis and Carbon Footprint Reduction for European SMEs.',
@@ -303,14 +295,14 @@ export class AppComponent {
     }
   };
 
-  // Função para retornar o texto traduzido (Método simples)
+  
   T(key: string): string { 
     const lang = this.selectedLanguage || 'en';
     const dict = this.translations[lang] || this.translations['en'];
     return dict[key] || this.translations['en'][key] || key;
   }
   
-  // Inicia o serviço de loading de UX (simula o tempo de cálculo LLM)
+ 
   private startUxSimulation() {
     let index = 0;
     const interval$ = timer(0, 1000).pipe(
@@ -377,7 +369,7 @@ export class AppComponent {
       selectedLanguage: this.selectedLanguage 
     };
 
-    // Adiciona um pequeno delay simulado para que o spinner de UX rode por pelo menos 1s
+    
     timer(1000).subscribe(() => {
         this.energyService.generateRecommendation(request, this.selectedLanguage).subscribe({
             next: (response: ApiResponse<OptimizationRecommendation>) => {
