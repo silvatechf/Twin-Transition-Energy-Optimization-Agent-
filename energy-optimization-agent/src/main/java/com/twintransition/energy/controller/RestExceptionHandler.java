@@ -1,4 +1,3 @@
-// src/main/java/com/twintransition/energy/controller/RestExceptionHandler.java
 package com.twintransition.energy.controller;
 
 import org.springframework.http.HttpStatus;
@@ -38,7 +37,6 @@ public class RestExceptionHandler {
         response.put("status", HttpStatus.BAD_REQUEST.value());
         response.put("error", "Validation Failed");
         
-        // Retorna a primeira mensagem de erro, que é o que o nosso teste espera
         if (!fieldErrors.isEmpty()) {
             response.put("errors", fieldErrors.values().toArray());
         }
