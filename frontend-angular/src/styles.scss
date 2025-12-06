@@ -1,0 +1,10 @@
+/* Configuração global do Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globais adicionais (Manter o mínimo) */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f7f7;
+}

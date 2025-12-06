@@ -1,0 +1,22 @@
+# src/main/resources/application.yml (CORRIGIDO)
+
+# Configurações de Internacionalização (i18n)
+spring:
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+
+# Configuração do WebClient (para a integração Python)
+optimization:
+  agent:
+    base-url: http://localhost:8000
+    optimize-path: /api/v1/optimize
+
+# Configuração do WebFlux (adicionada no pom.xml)
+# spring:
+#   webflux:
+#     base-path: /
+
+# Você pode adicionar outras configurações aqui, como porta, etc.
+server:
+  port: 8080
