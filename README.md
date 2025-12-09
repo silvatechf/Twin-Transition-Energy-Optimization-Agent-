@@ -6,7 +6,7 @@
 
 
 
-<img src="assets/image1.png" alt="screenshot GRC" width="50%" />
+<img src="assets/image1.png" alt="screenshot GRC" width="100%" />
 
 The **Twin Transition Energy Optimization Agent** is a modular platform designed to analyze, forecast, and optimize energy consumption in industrial and building environments. It combines a Spring Boot backend, a dedicated simulation engine, and an AI-powered analysis layer to produce actionable insights and support real-time decision making.
 
@@ -14,14 +14,14 @@ The **Twin Transition Energy Optimization Agent** is a modular platform designed
 
 ## Project Overview
 
-<img src="assets/image2.png" alt="screenshot GRC" width="50%" />
+<img src="assets/image2.png" alt="screenshot GRC" width="100%" />
 
 This system monitors energy usage, evaluates optimization scenarios, and generates technical recommendations.  
 The architecture is cleanly separated into independent modules so the platform can scale, evolve, or integrate with external systems without major restructuring.
 
 **Core capabilities include:**
 
-<img src="assets/image3.png" alt="screenshot GRC" width="50%" />
+<img src="assets/image3.png" alt="screenshot GRC" width="100%" />
 
 - Real-time data ingestion and normalization  
 - Simulation of optimization strategies (load shifting, peak shaving, baseline deviation, etc.)  
@@ -49,7 +49,7 @@ The system follows a domain-centric structure, ensuring business rules remain is
 
 ## Primary Features
 
-<img src="assets/image6.png" alt="screenshot GRC" width="50%" />
+<img src="assets/image6.png" alt="screenshot GRC" width="100%" />
 
 - Data acquisition and standardization  
 - Forecasting and scenario simulation  
